@@ -1,0 +1,20 @@
+{
+	"dependencies": {
+		"axios": "^1.8.4",
+		"cheerio": "^1.0.0",
+		"csv-parser": "^3.2.0",
+		"csv-writer": "^1.6.0",
+		"dotenv": "^16.4.7",
+		"html-entities": "^2.6.0",
+		"json2csv": "6.0.0-alpha.2",
+		"mongoose": "^8.13.1",
+		"node-fetch": "^3.3.2",
+		"p-limit": "^3.1.0",
+		"puppeteer": "^24.6.0",
+		"puppeteer-extra": "^3.3.6",
+		"puppeteer-extra-plugin-stealth": "^2.11.2",
+		"tldts": "^6.1.85",
+		"uuid": "^11.1.0",
+		"xml2js": "^0.6.2"
+	}
+}

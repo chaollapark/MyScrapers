@@ -25,7 +25,7 @@ jobs:
         run: pnpm install
 
       - name: Run the scraper
-        run: node scripts/euractivJobs.js
+        run: node MyScrapers/euractivJobs.js
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           OTHER_SECRET: ${{ secrets.OTHER_SECRET }}

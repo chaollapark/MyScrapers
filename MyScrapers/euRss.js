@@ -1,139 +1,129 @@
 const mongoose = require('mongoose');
-const axios = require('axios');
-const cheerio = require('cheerio');
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+const { parseStringPromise } = require('xml2js');
 const { decode } = require('html-entities');
 const { v4: uuidv4 } = require('uuid');
-const { JobModel } = require('./Job'); // Make sure your schema includes relativeLink
-const dbConnect = require('./dbConnect');
+const { JobModel } = require('./Job'); // Adjust if needed
+const dbConnect = require('./dbConnect'); // Adjust if needed
 
-const BASE_URL = 'https://eu-careers.europa.eu';
-const START_PATH = '/en/job-opportunities/open-vacancies/ec_vacancies';
-
-function generateSlug(title, company, id) {
-  const process = (str) =>
+function generateSlug(title, companyName, id) {
+  const processString = (str) =>
     (str || '')
       .toLowerCase()
       .replace(/[^\w\s-]/g, '')
       .replace(/\s+/g, '-')
       .replace(/-+/g, '-')
       .trim();
-  return `${process(title)}-at-${process(company)}-${id.slice(-6)}`;
+
+  const titleSlug = processString(title) || 'untitled';
+  const companySlug = processString(companyName) || 'unknown-company';
+  const shortId = id.slice(-6);
+  return `${titleSlug}-at-${companySlug}-${shortId}`;
 }
 
-function normalizeLink(link) {
-  return link?.split('?')[0]?.replace(/\/$/, '') || '';
+function extractCategoryValue(categories, domain) {
+  if (!Array.isArray(categories)) return '';
+  const match = categories.find((c) => c.domain === domain);
+  return typeof match === 'string' ? match : match?._ || '';
 }
 
-async function scrapeJobsFromPage(page = 0) {
-  const url = `${BASE_URL}${START_PATH}?page=${page}`;
-  const res = await axios.get(url);
-  const $ = cheerio.load(res.data);
-
-  const jobs = [];
-
-  $('table tbody tr').each((_, row) => {
-    const $row = $(row);
-
-    const titleEl = $row.find('td.views-field-title a');
-    const title = decode(titleEl.text().trim());
-    const rawLink = titleEl.attr('href');
-    const relativeLink = normalizeLink(rawLink);
-    const link = BASE_URL + relativeLink;
-
-    const domain = decode($row.find('.views-field-field-epso-domain').text().trim());
-    const dg = decode($row.find('.views-field-field-dgnew').text().trim());
-    const grade = decode($row.find('.views-field-field-epso-grade').text().trim());
-    const location = decode($row.find('.views-field-field-epso-location').text().trim());
-    const published = $row.find('.views-field-created time').attr('datetime');
-    const deadline = $row.find('.views-field-field-epso-deadline time').attr('datetime');
-
-    jobs.push({
-      title,
-      relativeLink,
-      link,
-      domain,
-      dg,
-      grade,
-      location,
-      published,
-      deadline
-    });
-  });
-
-  return jobs;
+function extractMultipleCategoryValues(categories, domain) {
+  if (!Array.isArray(categories)) return [];
+  return categories
+    .filter((c) => c.domain === domain)
+    .map((c) => (typeof c === 'string' ? c : c._ || ''))
+    .filter(Boolean);
 }
 
-async function scrapeAllEPSOJobs() {
+async function importJobsFromRSS() {
   await dbConnect();
-  let page = 0;
-  let allJobs = [];
-  const maxJobs = 100;
 
-  while (allJobs.length < maxJobs) {
-    console.log(`🔎 Scraping page ${page + 1}...`);
-    const jobs = await scrapeJobsFromPage(page);
-    if (jobs.length === 0) break;
+  const rssUrl = 'https://agencies-network.europa.eu/node/144/rss_en';
+  const response = await fetch(rssUrl);
+  const xml = await response.text();
+  const data = await parseStringPromise(xml, { explicitArray: false, mergeAttrs: true });
 
-    for (const job of jobs) {
-      if (allJobs.length >= maxJobs) break;
-      allJobs.push(job);
-    }
+  const items = data.rss.channel.item;
+  const jobs = Array.isArray(items) ? items : [items];
 
-    page++;
-  }
+  for (const job of jobs) {
+    const title = job.title;
+    const categories = Array.isArray(job.category) ? job.category : [job.category];
 
-  console.log(`📦 Total jobs scraped: ${allJobs.length}`);
+    const fullApplyLink = job.link;
+    const relativeLink = fullApplyLink.replace('https://agencies-network.europa.eu', '');
 
-  for (const job of allJobs) {
-    const exists = await JobModel.findOne({ relativeLink: job.relativeLink });
-    if (exists) {
-      console.log(`⚠️ Skipping duplicate: ${job.relativeLink}`);
+    // 🔍 Check for duplicates by relativeLink
+    const existing = await JobModel.findOne({ relativeLink });
+    if (existing) {
+      console.log(`⚠️ Skipping duplicate: ${title}`);
       continue;
     }
 
-    const id = uuidv4();
-    const slug = generateSlug(job.title, job.dg || 'European Commission', id);
+    const agencyDisplayName = extractCategoryValue(categories, 'Agency') || 'EU Agency';
+    const sourceAgency = extractCategoryValue(categories, 'http://publications.europa.eu/resource/authority/corporate-body');
+    const contractType = extractCategoryValue(categories, 'Type of Contract');
+    const vacancyType = extractCategoryValue(categories, 'Vacancy type');
+    const tags = extractMultipleCategoryValues(categories, 'http://data.europa.eu/uxp/det');
 
-    let seniority = 'mid-level';
-    const lowered = job.title.toLowerCase();
-    if (lowered.includes('intern')) seniority = 'intern';
-    else if (lowered.includes('junior')) seniority = 'junior';
-    else if (lowered.includes('senior')) seniority = 'senior';
+    const rawDescription = job.description || '';
+    const decodedDescription = decode(rawDescription);
+
+    const fallbackNote = 'This job listing is from an official EU agency. We pull these directly from trusted sources so you never miss an opportunity—even the ones buried deep in government websites.';
+    const description = decodedDescription
+      ? `${decodedDescription}\n\n${fallbackNote}`
+      : fallbackNote;
+
+    const pubDate = job.pubDate;
+    const locationStr = extractCategoryValue(categories, 'City, Country');
+    const [city = '', country = ''] = locationStr.split(',').map((s) => s.trim());
+
+    const id = uuidv4();
+    const slug = generateSlug(title, agencyDisplayName, id);
 
     const newJob = new JobModel({
       _id: new mongoose.Types.ObjectId(),
-      title: job.title,
+      title,
       slug,
-      description: `Domain: ${job.domain}<br>Grade: ${job.grade}<br>DG: ${job.dg}`,
-      companyName: job.dg || 'European Commission',
-      sourceAgency: '',
-      contractType: '',
-      vacancyType: '',
-      tags: [job.domain],
+      description,
+      companyName: agencyDisplayName,
+      sourceAgency,
+      contractType,
+      vacancyType,
+      tags,
       remote: 'no',
       type: 'full-time',
       salary: 0,
-      city: job.location,
-      country: '',
+      country,
+      city,
       state: '',
-      applyLink: job.link,
-      relativeLink: job.relativeLink, // ✅ standardized dedupe key
-      createdAt: new Date(job.published),
+      countryId: '',
+      stateId: '',
+      cityId: '',
+      postalCode: null,
+      street: '',
+      jobIcon: '',
+      contactName: '',
+      contactPhone: '',
+      contactEmail: '',
+      applyLink: fullApplyLink,
+      relativeLink, // ✅ used for deduplication
+      createdAt: new Date(pubDate),
       updatedAt: new Date(),
-      expiresOn: new Date(job.deadline || Date.now() + 30 * 86400000),
-      seniority,
+      expiresOn: new Date(new Date(pubDate).getTime() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+      seniority: 'mid-level',
       plan: 'basic',
-      source: 'eu-institution'
+      source: 'eu-rss'
     });
 
     try {
       await newJob.save();
-      console.log(`✅ Saved: ${job.title}`);
+      console.log(`✅ Saved: ${title}`);
     } catch (err) {
       if (err.code === 11000) {
-        console.log(`⚠️ Duplicate caught by DB index: ${job.relativeLink}`);
+        console.log(`⚠️ Duplicate caught by DB index: ${relativeLink}`);
       } else {
-        console.error(`❌ Failed to save ${job.title}:`, err.message);
+        console.error(`❌ Error saving "${title}":`, err.message);
       }
     }
   }
@@ -141,4 +131,4 @@ async function scrapeAllEPSOJobs() {
   mongoose.connection.close();
 }
 
-scrapeAllEPSOJobs();
+importJobsFromRSS();

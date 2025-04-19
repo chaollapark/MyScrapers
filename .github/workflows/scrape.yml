@@ -31,6 +31,7 @@ jobs:
           node MyScrapers/euractivJobs.js
           node MyScrapers/eurobrussels.js
           node MyScrapers/euRss.js
+          node MyScrapers/euInstitutions.js
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           OTHER_SECRET: ${{ secrets.OTHER_SECRET }}

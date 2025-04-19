@@ -3,7 +3,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const { decode } = require('html-entities');
 const { v4: uuidv4 } = require('uuid');
-const { JobModel } = require('./Job'); // Your schema
+const { JobModel } = require('./Job'); // Make sure your schema includes relativeLink
 const dbConnect = require('./dbConnect');
 
 const BASE_URL = 'https://eu-careers.europa.eu';
@@ -20,6 +20,10 @@ function generateSlug(title, company, id) {
   return `${process(title)}-at-${process(company)}-${id.slice(-6)}`;
 }
 
+function normalizeLink(link) {
+  return link?.split('?')[0]?.replace(/\/$/, '') || '';
+}
+
 async function scrapeJobsFromPage(page = 0) {
   const url = `${BASE_URL}${START_PATH}?page=${page}`;
   const res = await axios.get(url);
@@ -32,7 +36,8 @@ async function scrapeJobsFromPage(page = 0) {
 
     const titleEl = $row.find('td.views-field-title a');
     const title = decode(titleEl.text().trim());
-    const relativeLink = titleEl.attr('href');
+    const rawLink = titleEl.attr('href');
+    const relativeLink = normalizeLink(rawLink);
     const link = BASE_URL + relativeLink;
 
     const domain = decode($row.find('.views-field-field-epso-domain').text().trim());
@@ -44,14 +49,14 @@ async function scrapeJobsFromPage(page = 0) {
 
     jobs.push({
       title,
+      relativeLink,
       link,
       domain,
       dg,
       grade,
       location,
       published,
-      deadline,
-      relativeLink
+      deadline
     });
   });
 
@@ -80,9 +85,9 @@ async function scrapeAllEPSOJobs() {
   console.log(`📦 Total jobs scraped: ${allJobs.length}`);
 
   for (const job of allJobs) {
-    const exists = await JobModel.findOne({ applyLink: job.link });
+    const exists = await JobModel.findOne({ relativeLink: job.relativeLink });
     if (exists) {
-      console.log(`⚠️ Skipping duplicate: ${job.title}`);
+      console.log(`⚠️ Skipping duplicate: ${job.relativeLink}`);
       continue;
     }
 
@@ -112,6 +117,7 @@ async function scrapeAllEPSOJobs() {
       country: '',
       state: '',
       applyLink: job.link,
+      relativeLink: job.relativeLink, // ✅ standardized dedupe key
       createdAt: new Date(job.published),
       updatedAt: new Date(),
       expiresOn: new Date(job.deadline || Date.now() + 30 * 86400000),
@@ -124,11 +130,15 @@ async function scrapeAllEPSOJobs() {
       await newJob.save();
       console.log(`✅ Saved: ${job.title}`);
     } catch (err) {
-      console.error(`❌ Failed to save ${job.title}:`, err.message);
+      if (err.code === 11000) {
+        console.log(`⚠️ Duplicate caught by DB index: ${job.relativeLink}`);
+      } else {
+        console.error(`❌ Failed to save ${job.title}:`, err.message);
+      }
     }
   }
 
   mongoose.connection.close();
 }
 
-scrapeAllEPSOJobs()
+scrapeAllEPSOJobs();

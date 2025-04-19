@@ -7,8 +7,8 @@ async function deleteJobsWithSourceLosers() {
   await dbConnect();
 
   try {
-    const result = await JobModel.deleteMany({ source: 'euractiv' });
-    console.log(`🗑️ Deleted ${result.deletedCount} jobs with source "euractiv".`);
+    const result = await JobModel.deleteMany({ source: 'test' });
+    console.log(`🗑️ Deleted ${result.deletedCount} jobs with source "test".`);
   } catch (err) {
     console.error('❌ Error during deletion:', err.message);
   } finally {

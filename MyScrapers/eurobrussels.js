@@ -3,7 +3,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const { decode } = require('html-entities');
 const { v4: uuidv4 } = require('uuid');
-const { JobModel } = require('./Job');
+const { JobModel } = require('./Job'); // Make sure this includes relativeLink schema
 const dbConnect = require('./dbConnect');
 
 const BASE_URL = 'https://www.eurobrussels.com';
@@ -19,19 +19,21 @@ function generateSlug(title, company, id) {
   return `${process(title)}-at-${process(company)}-${id.slice(-6)}`;
 }
 
-async function fetchJobDescription(detailUrl) {
-  const fullUrl = `${BASE_URL}${detailUrl}`;
+function normalizeLink(link) {
+  return link?.split('?')[0]?.replace(/\/$/, '') || '';
+}
+
+async function fetchJobDescription(relativeLink) {
+  const fullUrl = `${BASE_URL}${relativeLink}`;
   try {
     const res = await axios.get(fullUrl);
     const $ = cheerio.load(res.data);
 
-    // 🧹 Remove unwanted content
     $('.apply.fw-bold.mt-4.mb-3').remove();
-    $('.shareJob').closest('.row').remove(); // whole row with social icons
+    $('.shareJob').closest('.row').remove();
 
     const descriptionHtml = $('.jobDisplay').html() || '';
 
-    // 🔗 Handle external apply link
     const applyBtn = $('a.btn.callToAction');
     let externalApplyLink = '';
 
@@ -69,22 +71,22 @@ async function scrapeCompanyJobs(companyPath, maxJobs = 3) {
 
     for (let i = 0; i < Math.min(maxJobs, jobBoxes.length); i++) {
       const box = $(jobBoxes[i]);
-
       const titleEl = box.find('h3 a');
       const title = decode(titleEl.text().trim());
-      const detailPath = titleEl.attr('href');
+      const rawLink = titleEl.attr('href');
+      const relativeLink = normalizeLink(rawLink);
       const company = decode(box.find('.companyName').text().trim());
       const location = decode(box.find('.location').text().trim());
 
-      const { description, finalApplyLink } = await fetchJobDescription(detailPath);
-      const applyLink = finalApplyLink || `${BASE_URL}${detailPath}`;
-
-      const exists = await JobModel.findOne({ applyLink });
+      // 🔍 Duplicate check by relativeLink
+      const exists = await JobModel.findOne({ relativeLink });
       if (exists) {
-        console.log(`⚠️ Skipping duplicate: ${title}`);
+        console.log(`⚠️ Skipping duplicate: ${relativeLink}`);
         continue;
       }
 
+      const { description, finalApplyLink } = await fetchJobDescription(relativeLink);
+      const applyLink = finalApplyLink || `${BASE_URL}${relativeLink}`;
       const id = uuidv4();
       const slug = generateSlug(title, company, id);
 
@@ -111,6 +113,7 @@ async function scrapeCompanyJobs(companyPath, maxJobs = 3) {
         country: '',
         state: '',
         applyLink,
+        relativeLink, // ✅ Standardized dedupe field
         createdAt: new Date(),
         updatedAt: new Date(),
         expiresOn: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
@@ -119,8 +122,16 @@ async function scrapeCompanyJobs(companyPath, maxJobs = 3) {
         source: 'eurobrussels'
       });
 
-      await job.save();
-      console.log(`✅ Saved: ${title}`);
+      try {
+        await job.save();
+        console.log(`✅ Saved: ${title}`);
+      } catch (err) {
+        if (err.code === 11000) {
+          console.log(`⚠️ Duplicate caught by DB index: ${relativeLink}`);
+        } else {
+          console.error(`❌ Error saving ${title}:`, err.message);
+        }
+      }
     }
   } catch (err) {
     console.error(`❌ Error scraping company jobs from ${companyPath}:`, err.message);
@@ -138,11 +149,11 @@ async function scrapeAllPremiumCompanies() {
       .map((_, el) => $(el).attr('href'))
       .get()
       .filter((href) => href && href.startsWith('/jobs_at/'))
-      .slice(0, 100); // 🔍 Just 3 companies for now
+      .slice(0, 100);
 
     for (const path of companyLinks) {
       console.log(`🌍 Scraping jobs at: ${path}`);
-      await scrapeCompanyJobs(path, 1); // 🔍 Just 1 job per company
+      await scrapeCompanyJobs(path, 1); // Scrape 1 job per company
     }
   } catch (err) {
     console.error('❌ Error loading main page:', err.message);

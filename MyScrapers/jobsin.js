@@ -13,10 +13,10 @@ const EMAIL_PATTERN = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
  * Generate custom email content for Jobsin contacts
  * @returns {string} - HTML email content
  */
-function generateJobsinEmailContent() {
+function generateJobsinEmailContent(jobTitle) {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 5px;">
-      <h2 style="color: #333;">Do you want to get 3 perfect CVs for ${title}?</h2>
+      <h2 style="color: #333;">Do you want to get 3 perfect CVs for ${jobTitle}?</h2>
       
       <p>Hello,</p>
       
@@ -458,7 +458,7 @@ async function scrapeStoryblokJobs() {
         if (process.env.RESEND_API_KEY && emails.length > 0) {
           try {
             const emailSubject = `Do you want to get 3 perfect CVs for ${title}?`;
-            const emailContent = generateJobsinEmailContent();
+            const emailContent = generateJobsinEmailContent(title);
             const sentEmails = new Set();
             
             for (const email of emails) {

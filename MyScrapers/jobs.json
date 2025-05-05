@@ -1,0 +1,3733 @@
+[
+  {
+    "name": "Finance Watch - Senior Research and Advocacy Officer",
+    "created_at": "2025-04-17T11:51:29.224Z",
+    "published_at": "2025-04-17T12:09:10.814Z",
+    "alternates": [],
+    "id": 657178516,
+    "uuid": "1fc8141a-9ebf-40c9-8cd7-8a9fe1d51dd4",
+    "content": {
+      "_uid": "0a1e3c23-8be7-4e06-ba0c-98af2f055169",
+      "city": [],
+      "epso": false,
+      "link": {
+        "id": "",
+        "url": "https://www.finance-watch.org/job/job-offer-senior-research-and-advocacy-officer-public-finance/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://www.finance-watch.org/job/job-offer-senior-research-and-advocacy-officer-public-finance/"
+      },
+      "title": "Senior Research and Advocacy Officer",
+      "expiry": "",
+      "isPaid": true,
+      "is_mep": false,
+      "employer": "Finance Watch",
+      "epso_url": "",
+      "job_area": [
+        "Policy & Advocacy",
+        "Research"
+      ],
+      "component": "post",
+      "paidUntil": "2025-05-19 00:00",
+      "compactJob": false,
+      "epso_grade": "",
+      "description": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Finance Watch, the Brussels-based public-interest advocacy association dedicated to making finance serve society, is looking for a (Senior) Research and Advocacy Officer to strengthen its team by undertaking research and advocacy work, as well as capacity-building efforts. ",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The (Senior) Research and Advocacy Officer will join a Research & Advocacy Department composed of four people, and will report to the Head of Research & Advocacy. Each member of this department works on specific areas of financial regulation and delivers:",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "policy-oriented research from a public-interest perspective, including the identification of the main issues and related legislative solutions;",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "advocacy, including building policymakers’ support for our proposals, with the aim to influence the legislative process; ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "regular contribution to communications, convening and capacity-building efforts in relevant areas of expertise.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The Research & Advocacy Department has regular direct contacts with international, EU and national policymakers. Additionally, this department works in close collaboration with the entire Finance Watch organisation, including its members, and with other civil society partners.",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Growing this team with highly skilled and motivated professionals is an essential component of our four-year strategic plan.",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "JOB DESCRIPTION",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The (Senior) Research and Advocacy Officer",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "text": "takes responsibility for legislative files and initiatives related to their subject matter expertise and defined area of responsibility. Specifically, these include public finance architecture (EU fiscal rules, debt sustainability analysis, national reform plans) and consideration of sustainability/climate risks within the macroeconomic and debt sustainability projections. ",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Specific topics of responsibility are defined in the original job posting and redefined annually, based on the work program.",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Core Responsibilities",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3
+            },
+            "content": [
+              {
+                "text": "Policy and advocacy",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Conduct policy-oriented research and make policy proposals.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Draft legislative amendments.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Develop ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "strategic policy positions",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " in collaboration with the Head of Research and Advocacy.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Represent ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "Finance Watch externally with policymakers, regulators and supervisors, financial industry participants and civil society (bilateral meetings, conferences and other events).",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Participate in industry events, as well as high-level events with policymakers, in order to represent civil society’s views.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Develop advocacy tactics and plans.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Execute advocacy plans targeted at policymakers and regulators. ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Build and maintain relationships with policymakers and supervisors on an ongoing basis.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3
+            },
+            "content": [
+              {
+                "text": "Work with Finance Watch members",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Interact with Finance Watch ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "members ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "on the files they are responsible for, via ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "bullet_list",
+                    "content": [
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Posting on the Members’ Hub;",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "textStyle",
+                                    "attrs": {
+                                      "color": ""
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Organising regular working groups (at least every two months);",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "textStyle",
+                                    "attrs": {
+                                      "color": ""
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Consulting members on the draft publications ahead of the release.",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "textStyle",
+                                    "attrs": {
+                                      "color": ""
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Contribute to the efforts of identifying and engaging ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "new members",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ".",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Interact and, where appropriate, coordinate advocacy efforts with other civil society organisations (CSO), academics and experts on the topics related to their areas of expertise.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3
+            },
+            "content": [
+              {
+                "text": "Contribution to awareness-raising",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Contribute to the debate and comment on ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "social media",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ".",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Communicate regularly with journalists on the files they are responsible for.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Draft blogs and ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "articles",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ", when appropriate.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Contribute to the Finance Watch ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "newsletters",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ".",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Organise ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "events ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "(workshops, roundtable discussions, panel discussions, conferences etc.) to support research and advocacy efforts.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Contribute to design communications and campaigning strategies.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3
+            },
+            "content": [
+              {
+                "text": "Data management",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Contribute to the growth and maintenance of the Finance Watch ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "database ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "of relevant contacts (policymakers, CSOs, academics etc.).",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Contribute to drafting funding applications and the ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "periodic reporting",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " to funders/donors.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "What does success in this job look like?",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Finance Watch strengthens its profile as a ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "leading ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "public-interest, expert ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "voice ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "in the respective subject matter area.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Finance Watch develops a comprehensive, communicable, consistent and ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "high-quality corpus",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " of policy analysis and recommendations.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Policymakers (regulators) and supervisors take onboard Finance Watch policy proposals and recommendations as part of the supervisory and legislative process.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Finance Watch is able to ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "anticipate major moments for action/influence",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ", with a mix of reactive and proactive outputs.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Finance Watch delivers its Research & Advocacy strategy and objectives",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": " on time",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " and properly ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "reports ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "on the actions and results (for the respective area of responsibility).",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Collaboration ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "and communication with the rest of the organisation is effective and transparent, which contributes to a strong team spirit.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Desired Profile / Qualifications",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "At least 5 years of experience in the domain of public finance at the EU or Member State level, including in the application of the EU fiscal rules (multiannual financial framework, national reform plans etc), macroeconomic research/analysis, debt sustainability analysisExperience with/knowledge of economic analysis of climate change (modelling, scenario analysis, cost estimates etc.) is an advantage.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Strong experience in conducting",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": " ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "policy analysis and writing reports/briefs",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Understanding of the main issues at stake with the EU public finance architecture, economic governance, debt and deficit rules, relevant EU and national mechanisms/institutions",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Knowledge of the climate risk agenda ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Understanding of the functioning of public finance in general and ability to analyse a diverse range of financial issues",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Strong understanding of the EU legislative process, financial regulation and supervision",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Master’s Degree, PhD or equivalent level in a relevant field of studies (macroeconomics/economics, political science, law etc.)",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3
+            },
+            "content": [
+              {
+                "text": "Professional Interests",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Personal conviction about the relevance of Finance Watch’s mission of “making finance serve society”",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Interest in and ability to understand other public finance topics such as state aid, procurement, monetary policy, as well as private finance (banking, insurance, financial markets, retail/consumer finance) ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Interest in financial reforms in Europe, relevant international mechanisms and institutions",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3
+            },
+            "content": [
+              {
+                "text": "Skills",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Ability to work and communicate with multiple stakeholders, internally and externally",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Experience in representing an organisation externally and public speaking, including at international events",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Effective workload management, including managing competing demands and maintaining high levels of accuracy and reliability",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Ability to analyse finance topics and regulation thereof, identify issues and propose solutions",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Ability to work with a CRM tool and databases",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3
+            },
+            "content": [
+              {
+                "text": "Languages",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Fluent written and spoken English is essential",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Fluency in at least one other EU language is a plus (in particular, Italian, Spanish and German)",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "WHAT WE OFFER",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "A permanent contract under Belgian law",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "No probation period",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "100%, or part-time negotiable",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "40h a week",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Hybrid (i.e. teleworking in Belgium + presence in the office in Brussels)",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "A competitive salary, dependent on seniority and skillset",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "20 days of legal holidays (prorata) per year + 1 recup day per month (prorata)",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "A monthly expense allowance, amount depending on seniority",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "A laptop (for professional use)",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Full reimbursement of public transportation in Belgium",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Lunch vouchers 8€ per working day",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "“Ecocheques” 250€ per year (prorata)",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Training possibilities",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "A multidisciplinary and multicultural working environment",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3
+            },
+            "content": [
+              {
+                "text": "Equal employment opportunity",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Finance Watch is committed to the principle of equal employment opportunity for all employees, regardless of sex, marital status, nationality, religion, age, sexual orientation and any other characteristics unrelated to the performance of the job. Know that we are particularly eager to increase the representation of women, “non-Caucasian” and disabled people within the Finance Watch staff. Selection will be in accordance with objective and job-related criteria. The appointment will be on the basis of applicants’ merits and abilities.",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Application guidelines",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Interested candidates are invited to send a letter of motivation + CV via email to: ",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              },
+              {
+                "text": "recruitment@finance-watch.org",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "link",
+                    "attrs": {
+                      "href": "mailto:recruitment@finance-watch.org",
+                      "uuid": null,
+                      "anchor": null,
+                      "target": null,
+                      "linktype": "url"
+                    }
+                  },
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Please quote “",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              },
+              {
+                "text": "Research & Advocacy Vacancy",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              },
+              {
+                "text": "” in the title of your email.",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The position remains open until filled.",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Interviews will take place online and/or in Brussels.",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "highQuality": false,
+      "organisation": "a05a6389-188e-48ac-9299-16ef738b9116",
+      "summary_long": "Finance Watch is hiring a Senior Research and Advocacy Officer to strengthen its team by undertaking research and advocacy work, as well as capacity-building efforts.\n🔹 The officer will be responsible for conducting policy-oriented research, drafting legislative amendments, and developing strategic policy positions in collaboration with the Head of Research and Advocacy.\n🔹 Applicants should have at least 5 years of experience in public finance, strong policy analysis skills, and a Master's Degree or equivalent in a relevant field.\n🔹 Finance Watch offers a permanent contract, competitive salary, and a multidisciplinary working environment.\n📆 Applications are considered on a rolling basis.",
+      "city_estimate": "",
+      "epso_contract": "",
+      "issue_category": [
+        "Economic & Trade Policy",
+        "Environmental Protection & Sustainability"
+      ],
+      "employer_domain": {
+        "id": "",
+        "url": "https://www.finance-watch.org/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://www.finance-watch.org/"
+      },
+      "employment_type": [
+        "Full-time"
+      ],
+      "seniority_level": "Mid-Level (5-10 years)",
+      "senirority_level": [],
+      "extended_deadline": "",
+      "languages_required": [],
+      "salary_indications": true,
+      "salary_monthly_max": "",
+      "salary_monthly_min": "",
+      "markdown_description": ""
+    },
+    "slug": "finance-watch-senior-research-and-advocacy-officer-2025-04",
+    "full_slug": "jobs/finance-watch-senior-research-and-advocacy-officer-2025-04",
+    "default_full_slug": null,
+    "sort_by_date": null,
+    "position": -33770,
+    "tag_list": [],
+    "is_startpage": false,
+    "parent_id": 19776374,
+    "meta_data": null,
+    "group_id": "27cd4424-1e4e-48fa-b674-d265bc022be3",
+    "first_published_at": "2025-04-17T12:09:10.814Z",
+    "release_id": null,
+    "lang": "default",
+    "path": null,
+    "translated_slugs": []
+  },
+  {
+    "name": "CONCORD - Policy and Advocacy Traineeship: Inequalities, Human Development and Gender Equality (Trainee)",
+    "created_at": "2025-04-17T07:55:29.708Z",
+    "published_at": "2025-04-17T07:56:52.470Z",
+    "alternates": [],
+    "id": 657029015,
+    "uuid": "81a91be8-e067-47f1-ab52-aaa08895b31d",
+    "content": {
+      "_uid": "1a4834e5-b478-44ec-a73a-841daa0c7644",
+      "city": [],
+      "epso": false,
+      "link": {
+        "id": "",
+        "url": "https://concordeurope.org/vacancies/inequalities-human-development-and-gender-equality/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://concordeurope.org/vacancies/inequalities-human-development-and-gender-equality/"
+      },
+      "title": "Policy and Advocacy Trainee: Inequalities, Human Development and Gender Equality",
+      "expiry": "2025-04-27 12:00",
+      "isPaid": false,
+      "is_mep": false,
+      "employer": "CONCORD",
+      "epso_url": "",
+      "job_area": [
+        "Policy & Advocacy"
+      ],
+      "component": "post",
+      "paidUntil": "",
+      "compactJob": false,
+      "epso_grade": "",
+      "description": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "CONCORD is seeking a highly-motivated young professional to join the Policy and Advocacy Team as a trainee with a keen interest in human development and equality – in particular gender equality.",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "About CONCORD",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "CONCORD is the European Confederation of Relief and Development NGOs. We are made up of member organisations: 26 National Platforms, 25 International Networks and 7 Associate Members which together represent over 2,600 NGOs, supported by millions of citizens across Europe. We are the main interlocutor with the EU institutions on international cooperation and sustainable development policy, funding and practice.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "We work together to ensure that European policies promote equal, just and inclusive societies in a sustainable world.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "CONCORD is an equal opportunity employer and considers applicants for all positions without regard to race, colour, religion, creed, gender, national origin, age, disability, marital or veteran status, sexual orientation, or any other legally protected status. All employment decisions are made entirely on merit.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Role Specification",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "We are looking for a young professional who is passionate, motivated, creative, cooperative, and committed and would like to gain valuable work experience and contribute to the work of a confederation of NGOs whose vision is of a world in which poverty and inequality have been ended; in which decisions are based on social justice, gender equality and upon our responsibility to future generations; where every person has the right to live in dignity, sustainably, on an equal basis, free from poverty.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "As a trainee, you will support CONCORD’s Policy and Advocacy work. You will work within our Policy and Advocacy team under the supervision of our Senior Policy and Advocacy Adviser to support CONCORD’s work on reducing inequalities, with a strong focus on gender equality, and to provide some general support to the policy and advocacy team as required and in accordance with CONCORD’s priorities for 2025.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Main Learning Objectives",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "You will be able to acquire a good understanding of decision-making processes in the EU institutions as well as the ways of working in an EU NGO confederation, bringing together networks and national platforms from across the European Union.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "You will be able to obtain knowledge about EU development policies, both a general overview as well as more detailed knowledge of policies in the areas of tackling inequalities, human development and gender equality.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "You will be able to enhance your coordination skills, process and project management skills and organisational skills.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "You will be able to learn more about policy analysis and advocacy processes, including drafting relevant documents, enhancing the engagement of members in order to develop and advocate for CONCORD’s positions, monitoring EU institutional policy processes, drafting minutes of meetings, and learn about the political process.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "All while working in an international, multicultural environment.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Main Responsibilities and Tasks",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The role involves supporting the implementation of CONCORD’s policy and advocacy objectives, coordinating our members in the collective policy and advocacy work vis-à-vis EU institutions, under the supervision of our Senior Inequalities Adviser and Senior Gender Equality Adviser.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Policy and advocacy work:",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "bullet_list",
+                    "content": [
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Participate in and contribute to the coordination within the Policy and Advocacy team and with other teams in CONCORD;",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Support the organisation of meetings and events;",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Monitor relevant EU policies and processes;",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Support projects within working groups and the drafting of joint positions and analyses;",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Contribute to knowledge sharing and management within working groups and CONCORD’s wider membership;",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Other relevant policy, advocacy and project tasks.",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Staff coordination and work:",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "bullet_list",
+                    "content": [
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Participate in staff coordination meetings and contribute to generic staff work.",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Conditions of Employment – PLEASE, READ THIS CAREFULLY",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Duration of contract:",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              },
+              {
+                "text": " This is a full time position (37.5 hours per week) for a period of 6 months;",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Aimed starting date:",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              },
+              {
+                "text": " The selected candidate would ideally be able to begin in May;",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Location:",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              },
+              {
+                "text": " Brussels, Belgium. Please note that if you do not currently reside in Belgium you will be required to relocate.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Type of contract:",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              },
+              {
+                "text": " CIP (contrat ‘d’immersion professionnelle)",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "The minimum duration of your traineeship will be 6 months with the possibility of extending to 12 months under certain conditions;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "The salary will be 1100 euros gross per month;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "You will be entitled to 20 vacation days pro rata which amounts to 10 vacation days for a 6-month traineeship;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "CONCORD also provides meal vouchers of 8 euros per working day, a monthly commuting allowance on local public transport or by bicycle and a monthly teleworking allowance given that you will be required to telework on certain days of the week.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Eligibility:",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              },
+              {
+                "text": " Please note that the CIP contract is not compatible with an internship agreement from a university and that you must have the right to live and work in Belgium.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Feedback and Evaluation",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Throughout the traineeship, you will be given feedback on your performance to help you learn and grow professionally.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Qualification and Experience",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3
+            },
+            "content": [
+              {
+                "text": "Education/Training:",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "University Degree or equivalent in development studies, political science, EU or other relevant studies.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3
+            },
+            "content": [
+              {
+                "text": "Technical Skills/Expertise:",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Knowledge of the functioning of the European Union institutions and EU policy-making processes;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Knowledge and/or strong interest in human development and inequalities overall is essential, with specific knowledge of gender equality, and the EU’s international cooperation and sustainable development policies in those fields an asset.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Knowledge and/or strong interest in EU and MS official development assistance (ODA) trends, or development funding is an asset;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Good analysis, writing and reporting skills;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Good spoken and written English",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3
+            },
+            "content": [
+              {
+                "text": "Profile of the ideal candidate:",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Ability to organise one’s own work and manage one’s own time;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Ability to work effectively and cooperatively with others and towards shared objectives;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Ability to work under pressure and to achieve tight deadlines;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Analytical and problem solving skills;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Attention to detail and curiosity;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Excellent interpersonal and communication skills;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Eager to take initiative;",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Strong computer skills.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "How to apply",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "If you are interested in applying for the traineeship, please upload ",
+                "type": "text"
+              },
+              {
+                "text": "by 27 April 2025 at midnight",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              },
+              {
+                "text": " the following information ",
+                "type": "text"
+              },
+              {
+                "text": "as one pdf document",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              },
+              {
+                "text": ", in the portal below:",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Your CV (max 2 pages, no photo)",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Your cover letter (max 1 page) highlighting your interest in working for CONCORD’s Financing and Funding for Sustainable Development workstream.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Only applications and CVs written in English will be accepted.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3
+            },
+            "content": [
+              {
+                "text": "Short listing and interviews:",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Short listing is based on CV and cover letter. Shortlisted candidates will be asked to attend an online interview.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Please note that due to the large number of expected applications only shortlisted candidates will be contacted. In advance, we thank all candidates for their interest.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Closing Date: 27 April 2025 at midnight",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Interview dates: Early May 2025",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Aimed starting date: Third week of May 2025",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "highQuality": false,
+      "organisation": "fdd4cb63-0a9f-448a-97fb-1c792f4a9a21",
+      "summary_long": "CONCORD is hiring a Policy and Advocacy Trainee to support their work on reducing inequalities, with a strong focus on gender equality.\n🔹 The trainee will support the Policy and Advocacy team, participate in coordination meetings, and contribute to the organisation of events and monitoring of EU policies.\n🔹 Applicants should have a university degree in relevant studies, knowledge of EU institutions, and a strong interest in human development and inequalities.\n🔹 CONCORD offers a 6-month traineeship with a salary of 1100 euros per month, meal vouchers, and a commuting allowance.\n📆 Apply by 27-04-2025.",
+      "city_estimate": "",
+      "epso_contract": "",
+      "issue_category": [
+        "Human Rights & Social Justice",
+        "Gender & Equality"
+      ],
+      "employer_domain": {
+        "id": "",
+        "url": "https://concordeurope.org/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://concordeurope.org/"
+      },
+      "employment_type": [
+        "Internship/Traineeship"
+      ],
+      "seniority_level": "Entry-Level (0-2 years)",
+      "senirority_level": [],
+      "extended_deadline": "",
+      "languages_required": [],
+      "salary_indications": true,
+      "salary_monthly_max": "1100",
+      "salary_monthly_min": "1100",
+      "markdown_description": ""
+    },
+    "slug": "concord-policy-and-advocacy-traineeship-inequalities-human-development-and-gender-equality-trainee-2025-04",
+    "full_slug": "jobs/concord-policy-and-advocacy-traineeship-inequalities-human-development-and-gender-equality-trainee-2025-04",
+    "default_full_slug": null,
+    "sort_by_date": null,
+    "position": -33760,
+    "tag_list": [],
+    "is_startpage": false,
+    "parent_id": 19776374,
+    "meta_data": null,
+    "group_id": "801668b3-340a-402e-adea-7a7895e5ba43",
+    "first_published_at": "2025-04-17T07:56:11.734Z",
+    "release_id": null,
+    "lang": "default",
+    "path": null,
+    "translated_slugs": []
+  },
+  {
+    "name": "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH - Praktikant*in für das Verbindungsbüro zur EU in Brüssel (Internship)",
+    "created_at": "2025-04-17T07:38:01.509Z",
+    "published_at": "2025-04-17T07:48:45.234Z",
+    "alternates": [],
+    "id": 657023991,
+    "uuid": "3f3e466a-4204-4f6a-ad07-9754f5f697ca",
+    "content": {
+      "_uid": "88764bb7-c2cc-4d8c-952a-95b1aad0902e",
+      "city": [],
+      "epso": false,
+      "link": {
+        "id": "",
+        "url": "https://jobs.giz.de/index.php?ac=jobad&id=75435",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://jobs.giz.de/index.php?ac=jobad&id=75435"
+      },
+      "title": "Intern for the Liaison Office for the EU (German-speaking)",
+      "expiry": "2025-04-30 12:00",
+      "isPaid": false,
+      "is_mep": false,
+      "employer": "Deutsche Gesellschaft für Internationale Zusammenarbeit",
+      "epso_url": "",
+      "job_area": [
+        "Policy & Advocacy",
+        "Administration"
+      ],
+      "component": "post",
+      "paidUntil": "",
+      "compactJob": false,
+      "epso_grade": "",
+      "description": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Ein besseres Leben für alle und sinnstiftende Aufgaben für unsere Mitarbeiter*innen – das ist unser Erfolgsmodell. Seit mehr als 50 Jahren unterstützt die Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) als Unternehmen der Bundesregierung bei der weltweiten Umsetzung entwicklungspolitischer Ziele. Gemeinsam mit Partnerorganisationen in 120 Ländern engagieren wir uns in unterschiedlichsten Projekten. Wenn Sie etwas in der Welt bewegen und sich selbst dabei entwickeln möchten, sind Sie bei uns richtig.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Tätigkeitsbereich",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Das Verbindungsbüro zur EU der Deutschen Gesellschaft für Internationale Zusammenarbeit ist als Teil der Abteilung Auftraggeber und Geschäftsentwicklung (AGE) erste Anlaufstelle für die operativen Kundenbeziehungen der GIZ mit der EU. Das Verbindungsbüro EU in Brüssel befindet sich direkt im Europaviertel. Von hier aus pflegt die GIZ den Kontakt zu ihren Partnern in den EU-Institutionen und vermittelt Wissen über die internationale Zusammenarbeit der EU in die GIZ hinein.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Ihre Aufgaben",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Im Rahmen Ihres Praktikums haben Sie folgende Aufgaben:",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Unterstützung bei der Aufbereitung, Analyse und Visualisierung von Daten zu EU-Finanzierungsinstrumenten und zur EU-Entwicklungszusammenarbeit. Auswertungen und Ableitungen relevanter Erkenntnisse für die GIZ und Präsentation der Ergebnisse",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Unterstützung des Teams in der Beratung verschiedener interner GIZ-Strukturen (Zentrale und Außenstruktur) zur Zusammenarbeit mit der EU und zur strategischen Entwicklung der EU-Portfolios",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Unterstützung des Teams bei der strukturierten Aufbereitung und Umsetzung von EU-Verfahren und Verträgen",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Inhaltliche und organisatorische Unterstützung bei der Entwicklung und Durchführung (überwiegend virtueller) Fortbildungsformate für GIZ-Kolleg*innen rund um die Zusammenarbeit mit der EU",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Unterstützung bei der inhaltlichen und organisatorischen Vorbereitung der Arbeitsgruppen-Treffen des Practitioners‘ Netzwerks",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Teilnahme an internen und gelegentlich externen Veranstaltungen mit anschließender inhaltlicher Aufbereitung für das Team",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Unterstützung bei der Vorbereitung und Nachbereitung von Terminen sowie bei allgemeinen Teamaufgaben",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Ihr Profil",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Studium mit Studienschwerpunkt in den Europa-/ Politik- oder Rechtswissenschaften, der Wirtschaftswissenschaften oder in einem vergleichbaren Studiengang",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Ausgeprägtes Interesse an Fragestellungen der internationalen Zusammenarbeit im europäischen Kontext",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Analytisches Denkvermögen sowie erste Erfahrung in der strukturierten Aufbereitung, Auswertung und Visualisierung komplexer Daten – vorzugsweise im entwicklungspolitischen oder europapolitischen Umfeld",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Bereitschaft und Fähigkeit, sich schnell in komplexe Prozesse einzuarbeiten und diese in geeigneter Form verständlich aufzubereiten",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Sehr gute MS-Office-Kenntnisse, insbesondere Excel (für Datenanalysen) und Powerpoint (für die Ergebnispräsentation)",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Verhandlungssichere Deutsch- und Englischkenntnisse in Wort und Schrift; Französisch – oder Spanischkenntnisse sind von Vorteil",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Hinweise",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Bitte beachten Sie, dass Sie sich nur für dieses Praktikum bewerben dürfen, wenn Sie derzeit als Student immatrikuliert sind oder Ihr Abschluss nicht länger als sechs Monate nach Beginn Ihres Praktikums zurückliegen. Die Bewerber müssen außerdem im Besitz einer belgischen Arbeitserlaubnis sein, die im Falle einer Nicht-EU-Staatsangehörigkeit bei der Bewerbung hochgeladen werden muss.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Wir zahlen eine monatliche Vergütung in Höhe von €1.350,- (brutto). Bitte beachten Sie, dass der Vertrag nach belgischem Recht geschlossen wird.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Die GIZ möchte den Anteil der Beschäftigten mit Behinderung im In- und Ausland erhöhen. Bewerbungen von Menschen mit Behinderung sind sehr willkommen.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Für weitere Auskünfte wenden Sie sich bitte an Herrn Krohn (",
+                "type": "text"
+              },
+              {
+                "text": "Jonas.krohn@giz.de",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "link",
+                    "attrs": {
+                      "href": "mailto:Jonas.krohn@giz.de",
+                      "uuid": null,
+                      "anchor": null,
+                      "target": null,
+                      "linktype": "url"
+                    }
+                  }
+                ]
+              },
+              {
+                "text": ")",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "highQuality": false,
+      "organisation": "78958650-2ccf-4302-83b5-ef0ebeae32c5",
+      "summary_long": "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH is hiring a Praktikant*in für das Verbindungsbüro zur EU in Brüssel (Internship) to support the EU Liaison Office in Brussels.\n🔹 Responsibilities include data analysis and visualization, supporting internal GIZ structures, and organizing training formats related to EU collaboration.\n🔹 Applicants should be students or recent graduates with a focus on European studies, political science, or similar fields, and possess strong analytical skills and MS Office proficiency.\n🔹 GIZ offers a monthly gross salary of €1,350 and the opportunity to work in an international environment.\n📆 Apply by 30-04-2025.",
+      "city_estimate": "",
+      "epso_contract": "",
+      "issue_category": [
+        "Development & Humanitarian Aid",
+        "Democracy & Governance"
+      ],
+      "employer_domain": {
+        "id": "",
+        "url": "https://www.giz.de/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://www.giz.de/"
+      },
+      "employment_type": [
+        "Internship/Traineeship"
+      ],
+      "seniority_level": "Entry-Level (0-2 years)",
+      "senirority_level": [],
+      "extended_deadline": "",
+      "languages_required": [
+        "German"
+      ],
+      "salary_indications": true,
+      "salary_monthly_max": "1350",
+      "salary_monthly_min": "1350",
+      "markdown_description": ""
+    },
+    "slug": "deutsche-gesellschaft-f-r-internationale-zusammenarbeit-giz-gmbh-praktikant-in-f-r-das-verbindungsb-ro-zur-eu-in-br-ssel-internship-2025-04",
+    "full_slug": "jobs/deutsche-gesellschaft-f-r-internationale-zusammenarbeit-giz-gmbh-praktikant-in-f-r-das-verbindungsb-ro-zur-eu-in-br-ssel-internship-2025-04",
+    "default_full_slug": null,
+    "sort_by_date": null,
+    "position": -33750,
+    "tag_list": [],
+    "is_startpage": false,
+    "parent_id": 19776374,
+    "meta_data": null,
+    "group_id": "cd1b9eea-8a9d-4d88-9c2b-235adfb114e1",
+    "first_published_at": "2025-04-17T07:48:45.234Z",
+    "release_id": null,
+    "lang": "default",
+    "path": null,
+    "translated_slugs": []
+  }
+]

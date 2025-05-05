@@ -6,6 +6,44 @@ const { decode } = require('html-entities');
 const { v4: uuidv4 } = require('uuid');
 const { JobModel } = require('./Job');
 const dbConnect = require('./dbConnect');
+const { sendEmail, extractEmailsFromText } = require('./helperFunctions/emailUtils');
+require('dotenv').config();
+
+/**
+ * Generate custom email content for Euractiv contacts
+ * @returns {string} - HTML email content
+ */
+function generateEuractivEmailContent() {
+  return `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 5px;">
+      <h2 style="color: #333;">Euractiv costs €1000 we charge €100</h2>
+      
+      <p>Hello,</p>
+      
+      <p>I noticed you're advertising on Euractiv's job board</p>
+      
+      <p>Why pay €1000 when you could pay just €100 and potentially reach more qualified candidates?</p>
+      
+      <p>We aggregate listings from all 17 major Brussels job boards and currently rank as the #1 platform for EU-focused job seekers. Our platform is trusted by teams at OpenAI, Anthropic, and Mistral.</p>
+
+      <p>Our platform specializes in EU policy, government affairs, and international roles - exactly the kind of positions that appear on Euractiv's job board. But our reach extends across all the major Brussels job boards plus our own direct audience.</p>
+      
+      <p>If you'd like to discuss how we can help with your recruitment needs or want to learn more about our services, I'd be happy to set up a call.</p>
+      
+      <p>
+        Best regards,<br>
+        Madan Chaolla Park<br>
+        Zatjob | Founder<br>
+        Phone: +393518681664
+      </p>
+      
+      <div style="margin-top: 30px; text-align: center;">
+        <a href="http://calendly.com/chaollapark" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px; margin-right: 10px;">Schedule a Meeting</a>
+        <a href="https://www.eujobs.co/" style="display: inline-block; padding: 10px 20px; background-color: #008CBA; color: white; text-decoration: none; border-radius: 4px;">Post a Job</a>
+      </div>
+    </div>
+  `;
+}
 
 const BASE_URL = 'https://jobs.euractiv.com';
 
@@ -44,7 +82,7 @@ async function fetchJobDescription(relativeUrl) {
 
     if (!contentHtml) {
       console.warn(`⚠️ No description HTML for ${relativeUrl}`);
-      return '';
+      return { description: '', emails: [] };
     }
 
     const $desc = cheerio.load(contentHtml);
@@ -63,15 +101,59 @@ async function fetchJobDescription(relativeUrl) {
 
     const cleaned = decode($desc.html() || '').trim();
     console.log(`ℹ️ [Desc length] ${relativeUrl}: ${cleaned.length}`);
-    return cleaned;
+    
+    // Extract email addresses from the job description
+    const emails = extractEmailsFromText(cleaned);
+    
+    // Also try to find email in the contact information
+    const contactInfo = $('.contact-info, .contact, .field--name-field-ea-job-contact-email');
+    if (contactInfo.length) {
+      const contactText = contactInfo.text();
+      const contactEmails = extractEmailsFromText(contactText);
+      emails.push(...contactEmails);
+    }
+    
+    // Look for mailto: links which often contain emails
+    $('a[href^="mailto:"]').each((_, el) => {
+      const mailtoHref = $(el).attr('href');
+      if (mailtoHref) {
+        const email = mailtoHref.replace('mailto:', '').split('?')[0].trim();
+        if (email && email.includes('@')) {
+          emails.push(email);
+        }
+      }
+    });
+    
+    // Look for spans or divs with class containing 'email'
+    $('.email, [class*="email"], [class*="contact"]').each((_, el) => {
+      const emailText = $(el).text();
+      const foundEmails = extractEmailsFromText(emailText);
+      emails.push(...foundEmails);
+    });
+    
+    return { 
+      description: cleaned, 
+      emails: [...new Set(emails)] // Remove duplicates
+    };
   } catch (err) {
     console.error(`❌ Failed to fetch description from ${relativeUrl}:`, err.message);
-    return '';
+    return { description: '', emails: [] };
   }
 }
 
 async function importJobsFromEuractiv() {
   await dbConnect();
+
+  // Track statistics
+  let stats = {
+    processed: 0,
+    saved: 0,
+    emailsFound: 0,
+    emailsSent: 0
+  };
+
+  console.log('\n🚀 Starting Euractiv Jobs scraper with email sending feature...');
+  console.log(`📧 Email sending ${process.env.RESEND_API_KEY ? 'ENABLED' : 'DISABLED (RESEND_API_KEY not configured)'}\n`);
 
   // ─── 3) Make sure the unique index exists (will error if duplicates still in DB)
   await JobModel.syncIndexes();
@@ -84,8 +166,10 @@ async function importJobsFromEuractiv() {
   const res = await axios.get(BASE_URL);
   const $ = cheerio.load(res.data);
   const rows = $('tbody tr');
+  console.log(`🔍 Found ${rows.length} job listings to process\n`);
 
   for (let i = 0; i < Math.min(200, rows.length); i++) {
+    stats.processed++;
     const row = rows[i];
     const titleEl = $(row).find('.views-field-title-1 a');
     const rawLink = titleEl.attr('href');
@@ -111,7 +195,12 @@ async function importJobsFromEuractiv() {
       $(row).find('.views-field-field-ea-shared-category-tref a').text().trim() || ''
     );
     const fullApplyLink = `${BASE_URL}${relativeLink}`;
-    const fullDescription = await fetchJobDescription(relativeLink);
+    const { description: fullDescription, emails } = await fetchJobDescription(relativeLink);
+    
+    // Log found emails
+    if (emails && emails.length > 0) {
+      console.log(`🔍 Found ${emails.length} email(s) in job: ${title}`);
+    }
 
     const id = uuidv4();
     const slug = generateSlug(title, company, id);
@@ -141,6 +230,7 @@ async function importJobsFromEuractiv() {
       state: '',
       applyLink: fullApplyLink,
       relativeLink,           // ← now normalized
+      contactEmail: emails.length > 0 ? emails[0] : null, // Save primary email if found
       createdAt: new Date(),
       updatedAt: new Date(),
       expiresOn: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
@@ -154,6 +244,41 @@ async function importJobsFromEuractiv() {
       await newJob.save();
       existingLinks.add(relativeLink);
       console.log(`✅ Saved: ${title}`);
+      
+      // Send sales emails to found contacts if configured
+      if (process.env.RESEND_API_KEY && emails.length > 0) {
+        try {
+          const emailSubject = "Euractiv costs €1000 we charge €100";
+          const emailContent = generateEuractivEmailContent(); // Use Euractiv-specific email content
+          const sentEmails = new Set();
+          
+          for (const email of emails) {
+            // Skip if already sent to this address
+            if (sentEmails.has(email)) continue;
+            
+            // Send the email using Resend API
+            const result = await sendEmail(email, emailSubject, emailContent, {
+              jobTitle: title,
+              companyName: company,
+              source: 'euractiv'
+            });
+            
+            if (!result.error) {
+              sentEmails.add(email);
+              console.log(`📨 Sales email sent to ${email} for ${title} at ${company}`);
+              
+              // Small delay to avoid rate limiting
+              await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+          }
+          
+          console.log(`📊 Sent emails to ${sentEmails.size} contacts for job: ${title}`);
+        } catch (emailErr) {
+          console.error(`❌ Error sending sales emails for ${title}:`, emailErr.message);
+        }
+      } else if (emails.length > 0 && !process.env.RESEND_API_KEY) {
+        console.log(`⚠️ RESEND_API_KEY not configured. Skipping email sending.`);
+      }
     } catch (err) {
       // ─── 7) Catch the unique‐index violation if it ever races
       if (err.code === 11000) {
@@ -164,7 +289,15 @@ async function importJobsFromEuractiv() {
     }
   }
 
+  // Print final stats
+  console.log('\n📊 FINAL STATISTICS:');
+  console.log(`Jobs processed: ${stats.processed}`);
+  console.log(`Jobs saved: ${stats.saved}`);
+  console.log(`Emails found: ${stats.emailsFound}`);
+  console.log(`Sales emails sent: ${stats.emailsSent}\n`);
+  
   await mongoose.connection.close();
+  console.log('✅ Scraping completed');
 }
 
 importJobsFromEuractiv();

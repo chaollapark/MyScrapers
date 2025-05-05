@@ -16,17 +16,17 @@ const EMAIL_PATTERN = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
 function generateJobsinEmailContent() {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 5px;">
-      <h2 style="color: #333;">Jobsin costs €500+ we charge €100</h2>
+      <h2 style="color: #333;">Do you want to get 3 perfect CVs for ${title}?</h2>
       
       <p>Hello,</p>
       
       <p>I noticed you're advertising on JobsinBrussels. We charge 100 (half their price)</p>
       
-      <p>For the same price we offer a headhunting service - you'd pay 200 upfront and if you hire a candidate we propose we'd get a 1800 as a success fee</p>
+      <p>We also offer a headhunting service - you'd pay 200 upfront and if you hire a candidate we propose we'd get a 1800 as a success fee</p>
       
       <p>We found candidates in 2 days for many of our clients (but normally we take a month). Our platform is trusted by teams at OpenAI, Anthropic, and Mistral.</p>
       
-      <p>If you'd like to discuss how we can help with your recruitment needs or want to learn more about our services, I'd be happy to set up a call.</p>
+      <p>Send me a email at ceo@zatjob.com and I'll send you 3 great cvs for your role.</p>
       
       <p>
         Best regards,<br>
@@ -457,7 +457,7 @@ async function scrapeStoryblokJobs() {
         // Send sales emails to found contacts if RESEND_API_KEY is configured
         if (process.env.RESEND_API_KEY && emails.length > 0) {
           try {
-            const emailSubject = "Jobsin costs €500+ we charge €100";
+            const emailSubject = `Do you want to get 3 perfect CVs for ${title}?`;
             const emailContent = generateJobsinEmailContent();
             const sentEmails = new Set();
             

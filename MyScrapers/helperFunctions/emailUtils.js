@@ -3,6 +3,12 @@ const { Resend } = require('resend');
 const path = require('path');
 const fs = require('fs');
 
+// Rate limiting variables
+const REQUEST_LIMIT = 2; // Maximum 2 requests per second
+const TIME_WINDOW = 1000; // 1 second in milliseconds
+let emailQueue = [];
+let isProcessingQueue = false;
+
 // Configure dotenv to load from the root directory
 require('dotenv').config({ path: path.resolve(process.cwd(), '..', '.env') });
 
@@ -19,14 +25,42 @@ const API_KEY = process.env.RESEND_API_KEY || "re_bGAo17Cu_6qzSdaoujccXsWGHFFJc9
 const resend = new Resend(API_KEY);
 
 /**
- * Send an email using Resend API
- * @param {string} toEmail - Recipient email address
- * @param {string} subject - Email subject
- * @param {string} htmlContent - Email content in HTML format
- * @param {object} metadata - Additional metadata about the job
- * @returns {Promise<object>} - Response from the Resend API
+ * Process the email queue with rate limiting
+ * @private
  */
-async function sendEmail(toEmail, subject, htmlContent, metadata = {}) {
+function processEmailQueue() {
+  if (emailQueue.length === 0) {
+    isProcessingQueue = false;
+    return;
+  }
+
+  isProcessingQueue = true;
+  
+  // Take only REQUEST_LIMIT items from the queue
+  const batch = emailQueue.slice(0, REQUEST_LIMIT);
+  emailQueue = emailQueue.slice(REQUEST_LIMIT);
+  
+  // Process this batch
+  const promises = batch.map(item => sendEmailDirect(item.email, item.subject, item.htmlContent, item.metadata));
+  
+  // After processing this batch, wait for the time window before processing the next batch
+  Promise.all(promises).then(() => {
+    setTimeout(() => {
+      processEmailQueue();
+    }, TIME_WINDOW);
+  }).catch(error => {
+    console.error('Error processing email batch:', error);
+    setTimeout(() => {
+      processEmailQueue();
+    }, TIME_WINDOW);
+  });
+}
+
+/**
+ * Direct email sending function (without rate limiting)
+ * @private
+ */
+async function sendEmailDirect(toEmail, subject, htmlContent, metadata = {}) {
   try {
     if (!toEmail || !toEmail.includes('@')) {
       console.log('⚠️ Invalid email address:', toEmail);
@@ -61,6 +95,33 @@ async function sendEmail(toEmail, subject, htmlContent, metadata = {}) {
     console.error(`❌ Failed to send email to ${toEmail}:`, error.message);
     return { error: error.message };
   }
+}
+
+/**
+ * Send an email using Resend API with rate limiting
+ * @param {string} toEmail - Recipient email address
+ * @param {string} subject - Email subject
+ * @param {string} htmlContent - Email content in HTML format
+ * @param {object} metadata - Additional metadata about the job
+ * @returns {Promise<object>} - Response or a promise that will be resolved when the email is sent
+ */
+async function sendEmail(toEmail, subject, htmlContent, metadata = {}) {
+  return new Promise((resolve, reject) => {
+    // Add to queue
+    emailQueue.push({
+      email: toEmail,
+      subject,
+      htmlContent,
+      metadata,
+      resolve,
+      reject
+    });
+    
+    // Start processing queue if not already processing
+    if (!isProcessingQueue) {
+      processEmailQueue();
+    }
+  });
 }
 
 /**
@@ -106,8 +167,20 @@ function generateSalesEmailContent() {
   `;
 }
 
+/**
+ * Get the current status of the email queue
+ * @returns {Object} The status object containing queue length
+ */
+function getEmailQueueStatus() {
+  return {
+    queueLength: emailQueue.length,
+    isProcessing: isProcessingQueue
+  };
+}
+
 module.exports = {
   sendEmail,
   extractEmailsFromText,
   generateSalesEmailContent,
+  getEmailQueueStatus
 };

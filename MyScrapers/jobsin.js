@@ -3,13 +3,49 @@ const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');
 const { JobModel } = require('./Job'); // Your existing Job model
 const dbConnect = require('./dbConnect'); // Your MongoDB connection
+const { sendEmail, extractEmailsFromText } = require('./helperFunctions/emailUtils');
+require('dotenv').config();
+
+// Email pattern for extracting emails from job descriptions
+const EMAIL_PATTERN = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
+
+/**
+ * Generate custom email content for Jobsin contacts
+ * @returns {string} - HTML email content
+ */
+function generateJobsinEmailContent() {
+  return `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 5px;">
+      <h2 style="color: #333;">Jobsin costs €500+ we charge €100</h2>
+      
+      <p>Hello,</p>
+      
+      <p>I noticed you're advertising on JobsinBrussels. We charge 100 (half their price)</p>
+      
+      <p>For the same price we offer a headhunting service - you'd pay 200 upfront and if you hire a candidate we propose we'd get a 1800 as a success fee</p>
+      
+      <p>We found candidates in 2 days for many of our clients (but normally we take a month). Our platform is trusted by teams at OpenAI, Anthropic, and Mistral.</p>
+      
+      <p>If you'd like to discuss how we can help with your recruitment needs or want to learn more about our services, I'd be happy to set up a call.</p>
+      
+      <p>
+        Best regards,<br>
+        Madan Chaolla Park<br>
+        Zatjob | Founder<br>
+        Phone: +393518681664
+      </p>
+      
+      <div style="margin-top: 30px; text-align: center;">
+        <a href="http://calendly.com/chaollapark" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px; margin-right: 10px;">Schedule a Meeting</a>
+        <a href="https://www.eujobs.co/new-listing/form" style="display: inline-block; padding: 10px 20px; background-color: #008CBA; color: white; text-decoration: none; border-radius: 4px;">Post a Job</a>
+      </div>
+    </div>
+  `;
+}
 
 const STORYBLOK_TOKEN = 'Tm0AEdGfJUmWBJcbrVXC7gtt';
 const BASE_LIST_URL = 'https://api.storyblok.com/v1/cdn/stories';
 const BASE_DETAIL_URL = 'https://api.storyblok.com/v1/cdn/stories';
-
-// Email pattern for extracting emails from job descriptions
-const EMAIL_PATTERN = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
 
 function generateSlug(title, company, id) {
   const process = (str) =>
@@ -298,11 +334,11 @@ async function scrapeStoryblokJobs() {
       // Generate description
       const description = extractTextFromStoryblok(fullJob.description || fullJob.body);
       
-      // Extract email from description if present
-      const contactEmail = extractEmailFromText(description);
-      if (contactEmail) {
-        console.log(`📧 Found email: ${contactEmail}`);
-        stats.emailsFound++;
+      // Extract all emails from description
+      const emails = extractEmailsFromText(description);
+      if (emails.length > 0) {
+        console.log(`📧 Found ${emails.length} email(s): ${emails.join(', ')}`);
+        stats.emailsFound += emails.length;
       }
 
       // Generate ID and slug
@@ -415,8 +451,44 @@ async function scrapeStoryblokJobs() {
 
       try {
         await newJob.save();
-        console.log(`✅ Saved: ${title} at ${companyName}`);
         stats.saved++;
+        console.log(`✅ Saved: ${title} at ${companyName}`);
+        
+        // Send sales emails to found contacts if RESEND_API_KEY is configured
+        if (process.env.RESEND_API_KEY && emails.length > 0) {
+          try {
+            const emailSubject = "Jobsin costs €500+ we charge €100";
+            const emailContent = generateJobsinEmailContent();
+            const sentEmails = new Set();
+            
+            for (const email of emails) {
+              // Skip if already sent to this address
+              if (sentEmails.has(email)) continue;
+              
+              // Send the email using Resend API
+              const result = await sendEmail(email, emailSubject, emailContent, {
+                jobTitle: title,
+                companyName: companyName,
+                source: 'jobsin'
+              });
+              
+              if (!result.error) {
+                sentEmails.add(email);
+                console.log(`📨 Sales email sent to ${email} for ${title} at ${companyName}`);
+                stats.emailsSent++;
+                
+                // Small delay to avoid rate limiting
+                await new Promise(resolve => setTimeout(resolve, 1000));
+              }
+            }
+            
+            console.log(`📊 Sent emails to ${sentEmails.size} contacts for job: ${title}`);
+          } catch (emailErr) {
+            console.error(`❌ Error sending sales emails for ${title}:`, emailErr.message);
+          }
+        } else if (emails.length > 0 && !process.env.RESEND_API_KEY) {
+          console.log(`⚠️ RESEND_API_KEY not configured. Skipping email sending.`);
+        }
       } catch (err) {
         console.error(`❌ Failed to save ${title}:`, err.message);
         stats.errors++;

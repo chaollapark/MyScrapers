@@ -39,7 +39,7 @@ function generateEuractivEmailContent() {
       
       <div style="margin-top: 30px; text-align: center;">
         <a href="http://calendly.com/chaollapark" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px; margin-right: 10px;">Schedule a Meeting</a>
-        <a href="https://www.eujobs.co/" style="display: inline-block; padding: 10px 20px; background-color: #008CBA; color: white; text-decoration: none; border-radius: 4px;">Post a Job</a>
+        <a href="https://www.eujobs.co/new-listing/form" style="display: inline-block; padding: 10px 20px; background-color: #008CBA; color: white; text-decoration: none; border-radius: 4px;">Post a Job</a>
       </div>
     </div>
   `;

@@ -13,6 +13,7 @@
 		"puppeteer": "^24.6.0",
 		"puppeteer-extra": "^3.3.6",
 		"puppeteer-extra-plugin-stealth": "^2.11.2",
+		"resend": "^4.5.0",
 		"tldts": "^6.1.85",
 		"uuid": "^11.1.0",
 		"xml2js": "^0.6.2"

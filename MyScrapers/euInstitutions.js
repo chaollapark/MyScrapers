@@ -9,6 +9,17 @@ const dbConnect = require('./dbConnect');
 const BASE_URL = 'https://eu-careers.europa.eu';
 const START_PATH = '/en/job-opportunities/open-vacancies/ec_vacancies';
 
+// Rate limiting settings
+const DELAY_BETWEEN_REQUESTS = 2000; // 2 seconds between requests
+const MAX_RETRIES = 3; // Maximum number of retries on failure
+
+/**
+ * Sleep function to pause execution
+ * @param {number} ms - Milliseconds to sleep
+ * @returns {Promise} - Promise that resolves after ms milliseconds
+ */
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 function generateSlug(title, company, id) {
   const process = (str) =>
     (str || '')
@@ -26,7 +37,44 @@ function normalizeLink(link) {
 
 async function scrapeJobsFromPage(page = 0) {
   const url = `${BASE_URL}${START_PATH}?page=${page}`;
-  const res = await axios.get(url);
+  
+  // Implement retry logic with exponential backoff
+  let retries = 0;
+  let res;
+  
+  while (retries <= MAX_RETRIES) {
+    try {
+      // Add custom headers to mimic a real browser
+      res = await axios.get(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+          'Accept-Language': 'en-US,en;q=0.9',
+          'Cache-Control': 'no-cache'
+        },
+        timeout: 30000 // 30 seconds timeout
+      });
+      
+      // If we get here, request was successful
+      break;
+    } catch (error) {
+      retries++;
+      
+      // Check if we've reached the max retries
+      if (retries > MAX_RETRIES) {
+        console.error(`❌ Failed to fetch page ${page} after ${MAX_RETRIES} attempts: ${error.message}`);
+        throw error;
+      }
+      
+      // Calculate backoff time - increases with each retry (exponential backoff)
+      const backoffTime = DELAY_BETWEEN_REQUESTS * Math.pow(2, retries - 1);
+      console.log(`⚠️ Rate limited or error on page ${page}, retry ${retries}/${MAX_RETRIES} after ${backoffTime/1000}s: ${error.message}`);
+      
+      // Wait before retrying
+      await sleep(backoffTime);
+    }
+  }
+  
   const $ = cheerio.load(res.data);
 
   const jobs = [];
@@ -68,18 +116,43 @@ async function scrapeAllEPSOJobs() {
   let page = 0;
   let allJobs = [];
   const maxJobs = 100;
+  let jobsScraped = 0;
+
+  console.log("\n🚀 Starting EU Institutions Jobs scraper...\n");
 
   while (allJobs.length < maxJobs) {
-    console.log(`🔎 Scraping page ${page + 1}...`);
-    const jobs = await scrapeJobsFromPage(page);
-    if (jobs.length === 0) break;
+    console.log(`🔍 Scraping page ${page + 1}...`);
+    
+    try {
+      const jobs = await scrapeJobsFromPage(page);
+      
+      if (jobs.length === 0) {
+        console.log(`✅ No more jobs found. Finishing scraping.`);
+        break;
+      }
 
-    for (const job of jobs) {
-      if (allJobs.length >= maxJobs) break;
-      allJobs.push(job);
+      // Add jobs to our collection
+      for (const job of jobs) {
+        if (allJobs.length >= maxJobs) break;
+        allJobs.push(job);
+        jobsScraped++;
+      }
+      
+      console.log(`💾 Found ${jobs.length} jobs on page ${page + 1}. Total so far: ${jobsScraped}`);
+      
+      // Wait between page scrapes to avoid rate limiting
+      if (allJobs.length < maxJobs) {
+        const waitTime = DELAY_BETWEEN_REQUESTS;
+        console.log(`⏳ Waiting ${waitTime/1000} seconds before next page...`);
+        await sleep(waitTime);
+      }
+
+      page++;
+    } catch (error) {
+      console.error(`❌ Error scraping page ${page + 1}: ${error.message}`);
+      console.log(`🛠 Continuing with jobs collected so far: ${allJobs.length}`);
+      break;
     }
-
-    page++;
   }
 
   console.log(`📦 Total jobs scraped: ${allJobs.length}`);

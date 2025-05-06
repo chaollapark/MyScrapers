@@ -41,19 +41,32 @@ function processEmailQueue() {
   emailQueue = emailQueue.slice(REQUEST_LIMIT);
   
   // Process this batch
-  const promises = batch.map(item => sendEmailDirect(item.email, item.subject, item.htmlContent, item.metadata));
+  const processPromises = batch.map(async (item) => {
+    try {
+      const result = await sendEmailDirect(item.email, item.subject, item.htmlContent, item.metadata);
+      // Resolve the individual promise with the result
+      item.resolve(result);
+      return result;
+    } catch (error) {
+      // Reject the individual promise with the error
+      item.reject(error);
+      throw error;
+    }
+  });
   
   // After processing this batch, wait for the time window before processing the next batch
-  Promise.all(promises).then(() => {
-    setTimeout(() => {
-      processEmailQueue();
-    }, TIME_WINDOW);
-  }).catch(error => {
-    console.error('Error processing email batch:', error);
-    setTimeout(() => {
-      processEmailQueue();
-    }, TIME_WINDOW);
-  });
+  Promise.all(processPromises)
+    .then(() => {
+      setTimeout(() => {
+        processEmailQueue();
+      }, TIME_WINDOW);
+    })
+    .catch(error => {
+      console.error('Error processing email batch:', error);
+      setTimeout(() => {
+        processEmailQueue();
+      }, TIME_WINDOW);
+    });
 }
 
 /**
@@ -62,19 +75,31 @@ function processEmailQueue() {
  */
 async function sendEmailDirect(toEmail, subject, htmlContent, metadata = {}) {
   try {
-    if (!toEmail || !toEmail.includes('@')) {
-      console.log('⚠️ Invalid email address:', toEmail);
+    // First, decode any URL-encoded characters in the email
+    let cleanEmail = toEmail;
+    try {
+      // Only attempt to decode if it appears to have URL-encoded characters
+      if (toEmail.includes('%')) {
+        cleanEmail = decodeURIComponent(toEmail);
+      }
+    } catch (decodeError) {
+      console.warn(`⚠️ Failed to decode email ${toEmail}:`, decodeError.message);
+      // Continue with the original email if decoding fails
+    }
+    
+    if (!cleanEmail || !cleanEmail.includes('@')) {
+      console.log('⚠️ Invalid email address:', cleanEmail);
       return { error: 'Invalid email address' };
     }
 
     const { companyName, jobTitle, source } = metadata;
 
     // Log the email being sent for tracking purposes
-    console.log(`📧 Sending email to: ${toEmail} for job: ${jobTitle || 'N/A'} at ${companyName || 'Unknown Company'}`);
+    console.log(`📧 Sending email to: ${cleanEmail} for job: ${jobTitle || 'N/A'} at ${companyName || 'Unknown Company'}`);
 
     const response = await resend.emails.send({
       from: process.env.EMAIL_FROM || 'onboarding@resend.dev',
-      to: toEmail,
+      to: cleanEmail,
       subject: subject,
       html: htmlContent,
       tags: [
@@ -89,10 +114,10 @@ async function sendEmailDirect(toEmail, subject, htmlContent, metadata = {}) {
       ]
     });
 
-    console.log(`✅ Email sent successfully to ${toEmail}`);
+    console.log(`✅ Email sent successfully to ${cleanEmail}`);
     return response;
   } catch (error) {
-    console.error(`❌ Failed to send email to ${toEmail}:`, error.message);
+    console.error(`❌ Failed to send email to ${cleanEmail}:`, error.message);
     return { error: error.message };
   }
 }
@@ -132,8 +157,20 @@ async function sendEmail(toEmail, subject, htmlContent, metadata = {}) {
 function extractEmailsFromText(text) {
   if (!text) return [];
   
+  // First, decode any URL-encoded characters in the text
+  let decodedText = text;
+  try {
+    // Only attempt to decode if it appears to have URL-encoded characters
+    if (text.includes('%')) {
+      decodedText = decodeURIComponent(text.replace(/\+/g, ' '));
+    }
+  } catch (decodeError) {
+    console.warn(`⚠️ Failed to decode text for email extraction:`, decodeError.message);
+    // Continue with the original text if decoding fails
+  }
+  
   const EMAIL_PATTERN = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
-  const emails = text.match(EMAIL_PATTERN);
+  const emails = decodedText.match(EMAIL_PATTERN);
   return emails || [];
 }
 

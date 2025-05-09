@@ -454,8 +454,8 @@ async function scrapeStoryblokJobs() {
         stats.saved++;
         console.log(`✅ Saved: ${title} at ${companyName}`);
         
-        // Send sales emails to found contacts if RESEND_API_KEY is configured
-        if (process.env.RESEND_API_KEY && emails.length > 0) {
+        // Send sales emails to found contacts if SENDGRID_API_KEY is configured
+        if (process.env.SENDGRID_API_KEY && emails.length > 0) {
           try {
             const emailSubject = `Do you want to get 3 perfect CVs for ${title}?`;
             const emailContent = generateJobsinEmailContent(title);
@@ -465,7 +465,7 @@ async function scrapeStoryblokJobs() {
               // Skip if already sent to this address
               if (sentEmails.has(email)) continue;
               
-              // Send the email using Resend API
+              // Send the email using SendGrid API
               const result = await sendEmail(email, emailSubject, emailContent, {
                 jobTitle: title,
                 companyName: companyName,
@@ -486,8 +486,8 @@ async function scrapeStoryblokJobs() {
           } catch (emailErr) {
             console.error(`❌ Error sending sales emails for ${title}:`, emailErr.message);
           }
-        } else if (emails.length > 0 && !process.env.RESEND_API_KEY) {
-          console.log(`⚠️ RESEND_API_KEY not configured. Skipping email sending.`);
+        } else if (emails.length > 0 && !process.env.SENDGRID_API_KEY) {
+          console.log(`⚠️ SENDGRID_API_KEY not configured. Skipping email sending.`);
         }
       } catch (err) {
         console.error(`❌ Failed to save ${title}:`, err.message);

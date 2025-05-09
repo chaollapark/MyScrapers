@@ -153,7 +153,7 @@ async function importJobsFromEuractiv() {
   };
 
   console.log('\n🚀 Starting Euractiv Jobs scraper with email sending feature...');
-  console.log(`📧 Email sending ${process.env.RESEND_API_KEY ? 'ENABLED' : 'DISABLED (RESEND_API_KEY not configured)'}\n`);
+  console.log(`📧 Email sending ${process.env.SENDGRID_API_KEY ? 'ENABLED' : 'DISABLED (SENDGRID_API_KEY not configured)'}\n`);
 
   // ─── 3) Make sure the unique index exists (will error if duplicates still in DB)
   await JobModel.syncIndexes();
@@ -246,7 +246,7 @@ async function importJobsFromEuractiv() {
       console.log(`✅ Saved: ${title}`);
       
       // Send sales emails to found contacts if configured
-      if (process.env.RESEND_API_KEY && emails.length > 0) {
+      if (process.env.SENDGRID_API_KEY && emails.length > 0) {
         try {
           const emailSubject = "Euractiv costs €1000 we charge €100";
           const emailContent = generateEuractivEmailContent(); // Use Euractiv-specific email content
@@ -256,7 +256,7 @@ async function importJobsFromEuractiv() {
             // Skip if already sent to this address
             if (sentEmails.has(email)) continue;
             
-            // Send the email using Resend API
+            // Send the email using SendGrid API
             const result = await sendEmail(email, emailSubject, emailContent, {
               jobTitle: title,
               companyName: company,
@@ -276,8 +276,8 @@ async function importJobsFromEuractiv() {
         } catch (emailErr) {
           console.error(`❌ Error sending sales emails for ${title}:`, emailErr.message);
         }
-      } else if (emails.length > 0 && !process.env.RESEND_API_KEY) {
-        console.log(`⚠️ RESEND_API_KEY not configured. Skipping email sending.`);
+      } else if (emails.length > 0 && !process.env.SENDGRID_API_KEY) {
+        console.log(`⚠️ SENDGRID_API_KEY not configured. Skipping email sending.`);
       }
     } catch (err) {
       // ─── 7) Catch the unique‐index violation if it ever races

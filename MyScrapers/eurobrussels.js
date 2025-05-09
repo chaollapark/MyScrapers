@@ -106,7 +106,7 @@ async function sendSalesEmails(emails, jobData) {
     if (sentEmails.has(email)) continue;
     
     try {
-      // Send the email using Resend API
+      // Send the email using SendGrid API
       const result = await sendEmail(email, emailSubject, emailContent, {
         jobTitle: title,
         companyName: companyName,
@@ -209,8 +209,8 @@ async function scrapeCompanyJobs(companyPath, maxJobs = 3) {
         companyStats.saved++;
         console.log(`✅ Saved: ${title}`);
         
-        // Send sales emails to found contacts if RESEND_API_KEY is configured
-        if (process.env.RESEND_API_KEY && emails.length > 0) {
+        // Send sales emails to found contacts if SENDGRID_API_KEY is configured
+        if (process.env.SENDGRID_API_KEY && emails.length > 0) {
           const emailsSent = await sendSalesEmails(emails, {
             title,
             companyName: company,
@@ -220,8 +220,8 @@ async function scrapeCompanyJobs(companyPath, maxJobs = 3) {
           if (emailsSent) {
             companyStats.emailsSent += emailsSent;
           }
-        } else if (emails.length > 0 && !process.env.RESEND_API_KEY) {
-          console.log(`⚠️ RESEND_API_KEY not configured. Skipping email sending.`);
+        } else if (emails.length > 0 && !process.env.SENDGRID_API_KEY) {
+          console.log(`⚠️ SENDGRID_API_KEY not configured. Skipping email sending.`);
         }
       } catch (err) {
         if (err.code === 11000) {
@@ -264,7 +264,7 @@ async function scrapeAllPremiumCompanies() {
 
   try {
     console.log('\n🚀 Starting Eurobrussels scraper with email sending feature...');
-    console.log(`📧 Email sending ${process.env.RESEND_API_KEY ? 'ENABLED' : 'DISABLED (RESEND_API_KEY not configured)'}\n`);
+    console.log(`📧 Email sending ${process.env.SENDGRID_API_KEY ? 'ENABLED' : 'DISABLED (SENDGRID_API_KEY not configured)'}\n`);
     
     const homepage = await axios.get(BASE_URL);
     const $ = cheerio.load(homepage.data);

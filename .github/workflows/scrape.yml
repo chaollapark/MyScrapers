@@ -35,5 +35,5 @@ jobs:
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           OTHER_SECRET: ${{ secrets.OTHER_SECRET }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
           EMAIL_FROM:     ${{ secrets.EMAIL_FROM }}

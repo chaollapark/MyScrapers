@@ -1,11 +1,11 @@
-// testEmail.js - A simple script to test the Resend email functionality
+// testEmail.js - A simple script to test the SendGrid email functionality
 require('dotenv').config();
 const { sendEmail, generateSalesEmailContent } = require('./helperFunctions/emailUtils');
 
 async function testEmailSending() {
   console.log('🧪 Testing email sending functionality...');
   console.log(`📧 Using email from: ${process.env.EMAIL_FROM}`);
-  console.log(`🔑 API Key configured: ${process.env.RESEND_API_KEY ? 'Yes (first 5 chars: ' + process.env.RESEND_API_KEY.substring(0, 5) + '...)' : 'No'}`);
+  console.log(`🔑 API Key configured: ${process.env.SENDGRID_API_KEY ? 'Yes (first 5 chars: ' + process.env.SENDGRID_API_KEY.substring(0, 5) + '...)' : 'No'}`);
   
   // Test recipient - replace with your own email for testing
   const testEmail = 'madan.cheon@gmail.com'; // Replace this with your email

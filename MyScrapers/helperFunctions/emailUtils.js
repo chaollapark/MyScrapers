@@ -1,5 +1,5 @@
 // emailUtils.js
-const { Resend } = require('resend');
+const sgMail = require('@sendgrid/mail');
 const path = require('path');
 const fs = require('fs');
 
@@ -15,14 +15,14 @@ require('dotenv').config({ path: path.resolve(process.cwd(), '..', '.env') });
 // Debug environment variables
 console.log('🔍 Environment check:');
 console.log(`- Working directory: ${process.cwd()}`);
-console.log(`- API Key available: ${process.env.RESEND_API_KEY ? 'Yes (first chars: ' + process.env.RESEND_API_KEY.substring(0, 5) + '...)' : 'No'}`); 
+console.log(`- API Key available: ${process.env.SENDGRID_API_KEY ? 'Yes (first chars: ' + process.env.SENDGRID_API_KEY.substring(0, 5) + '...)' : 'No'}`); 
 console.log(`- Email From: ${process.env.EMAIL_FROM || 'Not set'}`); 
 
 // Use API key directly if environment variable fails
-const API_KEY = process.env.RESEND_API_KEY || "re_bGAo17Cu_6qzSdaoujccXsWGHFFJc9yFZ";
+const API_KEY = process.env.SENDGRID_API_KEY || ""; // You'll need to set your SendGrid API key
 
-// Initialize Resend API client
-const resend = new Resend(API_KEY);
+// Initialize SendGrid API client
+sgMail.setApiKey(API_KEY);
 
 /**
  * Process the email queue with rate limiting
@@ -97,25 +97,21 @@ async function sendEmailDirect(toEmail, subject, htmlContent, metadata = {}) {
     // Log the email being sent for tracking purposes
     console.log(`📧 Sending email to: ${cleanEmail} for job: ${jobTitle || 'N/A'} at ${companyName || 'Unknown Company'}`);
 
-    const response = await resend.emails.send({
-      from: process.env.EMAIL_FROM || 'onboarding@resend.dev',
+    const msg = {
+      from: process.env.EMAIL_FROM || 'madan@lobbyinglondon.com', // Update with your verified sender
       to: cleanEmail,
       subject: subject,
       html: htmlContent,
-      tags: [
-        {
-          name: 'source',
-          value: source || 'scraper',
-        },
-        {
-          name: 'category',
-          value: 'job_application',
-        }
-      ]
-    });
+      categories: [source || 'scraper', 'job_application']
+    };
+
+    const response = await sgMail.send(msg);
 
     console.log(`✅ Email sent successfully to ${cleanEmail}`);
-    return response;
+    return {
+      id: response[0]?.headers['x-message-id'],
+      status: response[0]?.statusCode === 202 ? 'success' : 'error'
+    };
   } catch (error) {
     console.error(`❌ Failed to send email to ${cleanEmail}:`, error.message);
     return { error: error.message };
@@ -123,7 +119,7 @@ async function sendEmailDirect(toEmail, subject, htmlContent, metadata = {}) {
 }
 
 /**
- * Send an email using Resend API with rate limiting
+ * Send an email using SendGrid API with rate limiting
  * @param {string} toEmail - Recipient email address
  * @param {string} subject - Email subject
  * @param {string} htmlContent - Email content in HTML format

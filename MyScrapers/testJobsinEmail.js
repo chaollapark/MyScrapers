@@ -6,13 +6,13 @@ const { sendEmail } = require('./helperFunctions/emailUtils');
 function generateJobsinEmailContent() {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 5px;">
-      <h2 style="color: #333;">Jobsin costs €500+ we charge €100</h2>
+      <h2 style="color: #333;">Jobsinbrussels costs €500+ we charge €200</h2>
       
       <p>Hello,</p>
       
-      <p>I noticed you're advertising on Jobs.eu job board.</p>
+      <p>I noticed you're advertising on Jobsinbrussels job board.</p>
       
-      <p>Why pay €500+ when you could pay just €100 and reach more qualified candidates?</p>
+      <p>Why pay €500+ when you could pay just €200 and reach more qualified candidates?</p>
       
       <p>We aggregate listings from all 17 major Brussels job boards and currently rank as the #1 platform for EU-focused job seekers. Our platform is trusted by teams at OpenAI, Anthropic, and Mistral.</p>
 

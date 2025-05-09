@@ -180,7 +180,7 @@ function generateSalesEmailContent() {
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 5px;">
       <p>Hi there,</p>
       <p>I saw you posted a job on Eurobrussels.</p>
-      <p><strong>Why spend €1,400 on an inferior listing… when ours costs just €100?</strong></p>
+      <p><strong>Why spend €1,400 on an inferior listing… when ours costs just €200?</strong></p>
       <p>We're the #1 platform for EU-focused job seekers, trusted by teams at OpenAI, Anthropic, and Mistral.</p>
       <p>If you want more support, we also offer a headhunting option:</p>
       <ul>

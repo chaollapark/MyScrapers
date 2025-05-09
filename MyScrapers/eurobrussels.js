@@ -95,7 +95,7 @@ async function sendSalesEmails(emails, jobData) {
   if (!emails || emails.length === 0) return;
   
   const { title, companyName } = jobData;
-  const emailSubject = "Eurobrussels charges €1,400. We charge €100";
+  const emailSubject = "Eurobrussels charges €1,400. We charge €200";
   const emailContent = generateSalesEmailContent();
   
   // Track already sent emails to avoid duplicates

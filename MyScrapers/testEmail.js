@@ -11,7 +11,7 @@ async function testEmailSending() {
   const testEmail = 'madan.cheon@gmail.com'; // Replace this with your email
   
   // Email content
-  const subject = 'Test - Eurobrussels charges €1,400. We charge €100';
+  const subject = 'Test - Eurobrussels charges €1,400. We charge €200';
   const htmlContent = generateSalesEmailContent();
   
   try {

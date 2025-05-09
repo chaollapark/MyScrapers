@@ -16,17 +16,18 @@ const EMAIL_PATTERN = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
 function generateJobsinEmailContent(jobTitle) {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 5px;">
-      <h2 style="color: #333;">Do you want to get 3 perfect CVs for ${jobTitle}?</h2>
+      <h2 style="color: #333;">Want 3 Perfect CVs for Your ${jobTitle} Role?</h2>
       
       <p>Hello,</p>
       
-      <p>I noticed you're advertising on JobsinBrussels. We charge 100 (half their price)</p>
+      <p>I noticed your listing on JobsinBrussels. We offer a headhunting service at the same rate:</p>
+      <ul>
+        <li>€200 upfront</li>
+        <li>€1,800 success fee only if you hire one of our candidates</li>
+      </ul>
+      <p>Our clients typically hire in <strong>18 days</strong>—compared to the industry average of several months. Teams at OpenAI, Anthropic, and Mistral trust our platform.</p>
       
-      <p>We also offer a headhunting service - you'd pay 200 upfront and if you hire a candidate we propose we'd get a 1800 as a success fee</p>
-      
-      <p>We found candidates in 2 days for many of our clients (but normally we take a month). Our platform is trusted by teams at OpenAI, Anthropic, and Mistral.</p>
-      
-      <p>Send me a email at ceo@zatjob.com and I'll send you 3 great cvs for your role.</p>
+      <p>If you want to test it just send me our role via email and I'll send you 3 matching CVs free.</p>
       
       <p>
         Best regards,<br>
@@ -37,7 +38,7 @@ function generateJobsinEmailContent(jobTitle) {
       
       <div style="margin-top: 30px; text-align: center;">
         <a href="http://calendly.com/chaollapark" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px; margin-right: 10px;">Schedule a Meeting</a>
-        <a href="https://www.eujobs.co/new-listing/form" style="display: inline-block; padding: 10px 20px; background-color: #008CBA; color: white; text-decoration: none; border-radius: 4px;">Post a Job</a>
+        <a href="https://www.eujobs.co/headhunter" style="display: inline-block; padding: 10px 20px; background-color: #008CBA; color: white; text-decoration: none; border-radius: 4px;">Post a Job</a>
       </div>
     </div>
   `;
@@ -331,9 +332,13 @@ async function scrapeStoryblokJobs() {
         continue;
       }
 
-      // Generate description
-      const description = extractTextFromStoryblok(fullJob.description || fullJob.body);
-      
+      // Extract full description from the rich text field
+      // Ensure description is never empty to pass validation
+      let description = fullJob.description ? extractTextFromStoryblok(fullJob.description) : '';
+      if (!description || description.trim() === '') {
+        description = 'No description provided. Please visit the original job posting for more details.';
+      }
+
       // Extract all emails from description
       const emails = extractEmailsFromText(description);
       if (emails.length > 0) {
@@ -418,6 +423,9 @@ async function scrapeStoryblokJobs() {
       
       // Determine remote status
       const remote = determineRemoteStatus(title + ' ' + description);
+
+      // Set contact email if available (use first email found or empty string)
+      const contactEmail = emails.length > 0 ? emails[0] : '';
 
       // Create new job object with all available information
       const newJob = new JobModel({

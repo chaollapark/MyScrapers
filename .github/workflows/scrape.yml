@@ -4,27 +4,26 @@ on:
   schedule:
     - cron: '0 8 * * *'   # 08:00 UTC
     - cron: '0 13 * * *'  # 13:00 UTC
-  workflow_dispatch:      # Allow manual runs too
+  workflow_dispatch:
 
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
+          cache: pnpm
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
         with:
           version: 8
+          standalone: true   # avoids registry fetch during setup
 
       - name: Install deps
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Run the scraper
         run: |
@@ -37,4 +36,4 @@ jobs:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           OTHER_SECRET: ${{ secrets.OTHER_SECRET }}
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-          EMAIL_FROM:     ${{ secrets.EMAIL_FROM }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}

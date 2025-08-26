@@ -2,25 +2,39 @@ name: Run Euractiv Scraper
 
 on:
   schedule:
-    - cron: '0 8 * * *'   # 08:00 UTC
-    - cron: '0 13 * * *'  # 13:00 UTC
+    - cron: '0 8 * * *'   # 08:00 UTC (10:00 Brussels in summer)
+    - cron: '0 13 * * *'  # 13:00 UTC (15:00 Brussels in summer)
   workflow_dispatch:
 
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
-      - uses: pnpm/action-setup@v4
+      # Only needed if you have private packages or always-auth in any .npmrc
+      - name: Configure npm auth (if NPM_TOKEN is set)
+        if: ${{ secrets.NPM_TOKEN != '' }}
+        run: |
+          npm config set //registry.npmjs.org/:_authToken "${NODE_AUTH_TOKEN}"
+          npm config delete always-auth || true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
           version: 8
-          standalone: true   # avoids registry fetch during setup
+          standalone: true   # installs the self-contained pnpm binary
 
       - name: Install deps
         run: pnpm install --frozen-lockfile

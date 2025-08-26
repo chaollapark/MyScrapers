@@ -9,7 +9,6 @@ on:
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -21,20 +20,24 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
-      # Only needed if you have private packages or always-auth in any .npmrc
-      - name: Configure npm auth (if NPM_TOKEN is set)
-        if: ${{ secrets.NPM_TOKEN != '' }}
-        run: |
-          npm config set //registry.npmjs.org/:_authToken "${NODE_AUTH_TOKEN}"
-          npm config delete always-auth || true
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 8
-          standalone: true   # installs the self-contained pnpm binary
+          standalone: true   # installs a self-contained pnpm binary
+
+      # Optional: only does something if NPM_TOKEN exists
+      - name: Configure npm auth (optional)
+        run: |
+          if [ -n "${NODE_AUTH_TOKEN}" ]; then
+            echo "Configuring npm auth..."
+            npm config set //registry.npmjs.org/:_authToken "${NODE_AUTH_TOKEN}"
+            npm config delete always-auth || true
+          else
+            echo "No NPM token set; skipping auth config."
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install deps
         run: pnpm install --frozen-lockfile

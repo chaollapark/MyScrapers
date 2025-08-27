@@ -33,7 +33,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install deps
-        run: npm ci
+        run: npm install
 
       - name: Run the scraper
         run: |

@@ -14,17 +14,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-          standalone: true   # this actually installs the pnpm binary
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Configure npm auth (optional)
         run: |
@@ -38,11 +32,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Verify pnpm
-        run: pnpm -v
-
       - name: Install deps
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
       - name: Run the scraper
         run: |

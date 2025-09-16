@@ -3,10 +3,10 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const { decode } = require('html-entities');
 const { v4: uuidv4 } = require('uuid');
-const { JobModel } = require('./MyScrapers/Job');
-const dbConnect = require('./MyScrapers/dbConnect');
-const { sendEmail, extractEmailsFromText, generateSalesEmailContent } = require('./MyScrapers/helperFunctions/emailUtils');
-require('dotenv').config({ path: './MyScrapers/.env' });
+const { JobModel } = require('./Job');
+const dbConnect = require('./dbConnect');
+const { sendEmail, extractEmailsFromText, generateSalesEmailContent } = require('./helperFunctions/emailUtils');
+require('dotenv').config();
 
 /*
  * Euractiv jobs scraper (2025).

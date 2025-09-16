@@ -5,6 +5,8 @@ const { decode } = require('html-entities');
 const { v4: uuidv4 } = require('uuid');
 const { JobModel } = require('./Job'); // Make sure your schema includes relativeLink
 const dbConnect = require('./dbConnect');
+const mammoth = require('mammoth');
+const pdf = require('pdf-parse');
 
 const BASE_URL = 'https://eu-careers.europa.eu';
 const START_PATH = '/en/job-opportunities/open-vacancies/ec_vacancies';
@@ -111,6 +113,133 @@ async function scrapeJobsFromPage(page = 0) {
   return jobs;
 }
 
+/**
+ * Extract text content from DOCX or PDF document
+ * @param {string} documentUrl - URL of the document to extract
+ * @returns {Promise<string>} - Extracted text content
+ */
+async function extractDocumentContent(documentUrl) {
+  try {
+    const response = await axios.get(documentUrl, {
+      responseType: 'arraybuffer',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      },
+      timeout: 30000
+    });
+    
+    let content = '';
+    
+    if (documentUrl.endsWith('.docx')) {
+      const result = await mammoth.extractRawText({ buffer: response.data });
+      content = result.value;
+    } else if (documentUrl.endsWith('.pdf')) {
+      const data = await pdf(response.data);
+      content = data.text;
+    }
+    
+    return content.trim();
+  } catch (error) {
+    console.error(`❌ Failed to extract document ${documentUrl}:`, error.message);
+    return '';
+  }
+}
+
+/**
+ * Scrape individual job page to get detailed description and application links
+ * @param {string} jobUrl - Full URL of the job page
+ * @returns {Promise<Object>} - Object containing description and apply link
+ */
+async function scrapeJobDetails(jobUrl) {
+  let retries = 0;
+  
+  while (retries <= MAX_RETRIES) {
+    try {
+      const response = await axios.get(jobUrl, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+          'Accept-Language': 'en-US,en;q=0.9',
+          'Cache-Control': 'no-cache'
+        },
+        timeout: 30000
+      });
+      
+      const $ = cheerio.load(response.data);
+      
+      // Look for document links
+      const docLinks = [];
+      const appLinks = [];
+      
+      $('a[href$=".docx"], a[href$=".pdf"]').each((_, link) => {
+        const href = $(link).attr('href');
+        const text = $(link).text().trim();
+        
+        if (href) {
+          const fullUrl = href.startsWith('http') ? href : BASE_URL + href;
+          
+          if (text.toLowerCase().includes('application') || 
+              text.toLowerCase().includes('form') ||
+              text.toLowerCase().includes('single application')) {
+            appLinks.push({ url: fullUrl, text });
+          } else if (text.toLowerCase().includes('vn.') || 
+                     text.toLowerCase().includes('vacancy') ||
+                     href.includes('eu_vacancies')) {
+            docLinks.push({ url: fullUrl, text });
+          }
+        }
+      });
+      
+      // Extract description from the first job description document
+      let description = '';
+      if (docLinks.length > 0) {
+        console.log(`📄 Extracting description from: ${docLinks[0].text}`);
+        description = await extractDocumentContent(docLinks[0].url);
+        
+        // If extraction failed or content is too short, try other documents
+        if (!description || description.length < 100) {
+          for (let i = 1; i < docLinks.length; i++) {
+            console.log(`📄 Trying alternative document: ${docLinks[i].text}`);
+            description = await extractDocumentContent(docLinks[i].url);
+            if (description && description.length >= 100) break;
+          }
+        }
+      }
+      
+      // Get apply link (prefer application form documents)
+      let applyLink = jobUrl; // Default to job page URL
+      if (appLinks.length > 0) {
+        applyLink = appLinks[0].url;
+        console.log(`📝 Using application form: ${appLinks[0].text}`);
+      }
+      
+      return {
+        description: description || 'No detailed description available',
+        applyLink,
+        hasDocument: docLinks.length > 0,
+        hasApplicationForm: appLinks.length > 0
+      };
+      
+    } catch (error) {
+      retries++;
+      
+      if (retries > MAX_RETRIES) {
+        console.error(`❌ Failed to scrape job details for ${jobUrl} after ${MAX_RETRIES} attempts: ${error.message}`);
+        return {
+          description: 'Failed to extract description',
+          applyLink: jobUrl,
+          hasDocument: false,
+          hasApplicationForm: false
+        };
+      }
+      
+      const backoffTime = DELAY_BETWEEN_REQUESTS * Math.pow(2, retries - 1);
+      console.log(`⚠️ Error scraping job details, retry ${retries}/${MAX_RETRIES} after ${backoffTime/1000}s: ${error.message}`);
+      await sleep(backoffTime);
+    }
+  }
+}
+
 async function scrapeAllEPSOJobs() {
   await dbConnect();
   let page = 0;
@@ -173,11 +302,12 @@ async function scrapeAllEPSOJobs() {
     else if (lowered.includes('junior')) seniority = 'junior';
     else if (lowered.includes('senior')) seniority = 'senior';
 
+    const jobDetails = await scrapeJobDetails(job.link);
     const newJob = new JobModel({
       _id: new mongoose.Types.ObjectId(),
       title: job.title,
       slug,
-      description: `Domain: ${job.domain}<br>Grade: ${job.grade}<br>DG: ${job.dg}`,
+      description: jobDetails.description,
       companyName: job.dg || 'European Commission',
       sourceAgency: '',
       contractType: '',
@@ -189,7 +319,7 @@ async function scrapeAllEPSOJobs() {
       city: job.location,
       country: '',
       state: '',
-      applyLink: job.link,
+      applyLink: jobDetails.applyLink,
       relativeLink: job.relativeLink, // ✅ standardized dedupe key
       createdAt: new Date(job.published),
       updatedAt: new Date(),

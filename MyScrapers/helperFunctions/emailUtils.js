@@ -113,7 +113,7 @@ async function sendEmailDirect(toEmail, subject, htmlContent, metadata = {}) {
       status: response[0]?.statusCode === 202 ? 'success' : 'error'
     };
   } catch (error) {
-    console.error(`❌ Failed to send email to ${cleanEmail}:`, error.message);
+    console.error(`❌ Failed to send email to ${toEmail}:`, error.message);
     return { error: error.message };
   }
 }
